@@ -222,7 +222,7 @@ class Player extends tiny_typed_emitter_1.TypedEmitter {
             const extractor = this.extractors.get(options.searchEngine);
             if (!extractor.validate(query))
                 return { playlist: null, tracks: [] };
-            const data = await extractor.handle(query);
+            const data = await extractor.handle(query, message);
             if (data && data.data.length) {
                 const playlist = !data.playlist
                     ? null
